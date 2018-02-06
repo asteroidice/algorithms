@@ -62,9 +62,9 @@ class bTree:
         if not leaf:
             leaf = self.head
 
-        # If the current node has no children don't count it at all.
+        # If the current node is the last parent, return the pathLength.
         if not leaf.right and not leaf.left:
-            return 0
+            return pathLength
 
         # Count the current pathLength and then recursively repeat the process.
         left = pathLength + 1
