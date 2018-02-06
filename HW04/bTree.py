@@ -75,6 +75,16 @@ class bTree:
             left = self.findPathLength(leaf.left, pathLength + 1)
         return left + right
 
+    def count(self, leaf=None):
+        if not leaf:
+            leaf = self.head
+        count = 0
+        if leaf.right:
+            count += self.count(leaf.right)
+        if leaf.left:
+            count += self.count(leaf.left)
+        return count + 1
+
     # Found here: https://stackoverflow.com/a/34013268/9041594
     def printTree(self):
         current_level = [self.head]
