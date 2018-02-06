@@ -27,9 +27,9 @@ This will render a tree that looks like...
 ```
 or if you align everything properly...
 ```
-            1
-        -1        2
-    -2    0     2   3
+           1
+      -1        2
+   -2    0     2   3
 -3            2
 ```
 3. **Finding the Path Length:** The `findPathLength()` method calculates the internal path length of the tree. It starts with the tree head and recursively calls itself while keeping track of the current path length. In this specific case the path length is found to be `16`. This is the sum of the lengths from the root node to every parent node.
