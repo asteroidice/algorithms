@@ -30,7 +30,7 @@
   python -i p11.py
   ```
   5. You can sort the `anagrams` list and see what the most common anagram is by typing the following.
-  ```
+  ```python
   >>> a = sorted(anagrams, key=lambda x: len(x), reverse=True)
   >>> a[0]
   ```
