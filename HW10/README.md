@@ -4,11 +4,41 @@
 >
 > Write a computer program to solve the equation ax^2 + bx + c = 0
 
-Advisement:
+Other requirements:
 
 > Your submission must run on the CS Lab computers and include a detailed
 README.md explaining how to execute your program. The code must be well
 formatted and commented. You may use any programming language.
+
+## Running the program
+In the directory of this README, run the following command.
+```bash
+python main.py
+```
+Follow the prompts and then feast your eyes on the glories of newtons method.
+### Example output
+```
+Enter a, b and c to solve for the folllowing equaiton.
+ ax^2 + bx + c = 0
+a = 1
+b = 10E5
+c = 1
+
+Newton's method solution:
+(-0.000001, -999999.999999)
+Default python solution:
+(-0.000001, -999999.999999)
+Sqrt comparison:
+newton: 999999.999998 , native: 999999.999998
+```
+
+## Diving into code
+There are two main scripts/packages responsible for this program.
+1. **`newton/sqrt.py`** is the script responsible for calculating the square root
+using newton's method.
+
+2. **`main.py`** is the main script that handles user input and calculates the
+remaining portion of the quadratic formula.
 
 ## Design Process
 
@@ -29,16 +59,14 @@ root of a value. To do this the following formula can be used.
 x_0 = (1 + D) / 2
 x_(n + 1) = 1/2 ( x_n + D/x_n )
 ```
-This recursion relation quickly converges to the correct value of √D. It can be
-proven that it will only take four (4) iterations and be within reasonable tolerances.
+There are a number of methods for ensuring the answer is sufficiently close to
+√D. One such way to ensure this is to arbitrarily choose an accuracy and
+and iterate till this accuracy is met. See the following snippet from the book.
 
-### Other implications with the discretization of the quadratic formula
-#### subtractive cancellation
-The book mentions that there are cases such as `x^2 + 10E5x + 1 = 0` where the
-risk of subtractive cancellation is very high. To rectify this issue the
-following formula can be used for x_1 instead.
-```
-x_1 = 2c / (-b - sqrt( b^2 - 4ac) )
-```
+>We can stop generating its elements either when the difference between its two consecutive elements is less than a predefined error tolerance ε > 0
 
-## Running the program
+Another way of ensuring accuracy is as follows. The above recursion relation
+quickly converges to the correct value of √D if 0.25 < D < 1. It can be
+proven that it will only take four (4) iterations and be within very reasonable tolerances.
+However, because the book didn't elaborate well on how to scale any value of D
+while maintaining the actual value of a square root, this method was not used.
