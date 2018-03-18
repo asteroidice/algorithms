@@ -20,7 +20,9 @@ This is the main function block. It makes use of the speciallized
 native python funcitons for sqrt.
 """
 def main():
-    print("Enter a, b and c to solve for the folllowing equaiton.\n ax^2 + bx + c = 0")
+    print("Enter a, b and c to solve for the folllowing equaiton.\n "
+        "ax^2 + bx + c = 0\n"
+        "NOTE: Values where 4ac > b^2 will raise a ValueError.")
 
     # prompt the user for values.
     a = prompt("a = ")

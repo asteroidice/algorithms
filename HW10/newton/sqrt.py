@@ -1,4 +1,6 @@
 def newton_sqrt(D):
+    if 0 > D:
+        raise ValueError("math domain error")
     # the case where n = 0
     x_n = __x_0(D)
     # perform teh first iteration to calculate n = 1.
